@@ -1,6 +1,6 @@
 import API from './fetchCountries.js';
 import countriesEl from '../templates/countriesList.hbs';
-import cantryCard from '../templates/country-card.hbs';
+import countryCard from '../templates/country-card.hbs';
 
 import { alert, error } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
@@ -37,6 +37,7 @@ function onSearch() {
         .catch(onFetchError);
 }
 
+
 function checkNumberOfCountries(countries) {
     if (countries.length > 10) {
         clearMarkup();
@@ -48,7 +49,7 @@ else if (countries.length <= 10 && countries.length > 1) {
     }
 else if (countries.length === 1) {
         clearMarkup();
-        renderCountryCard(cantryCard, countries[0]);
+        renderCountryCard(countryCard, countries[0]);
 } else {
         clearMarkup();
         noResult();
